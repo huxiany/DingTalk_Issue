@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RuleSet Name="EaseSource Coding Standard Rulset" Description="A custom ruleset enforcing EaseSource coding standard" ToolsVersion="14.0">
+    <Rules AnalyzerId="Microsoft.Analyzers.ManagedCodeAnalysis" RuleNamespace="Microsoft.Rules.Managed">
+        <Rule Id="CA1028" Action="None" />
+        <Rule Id="CA1038" Action="None" />
+        <Rule Id="CA1054" Action="None" />
+        <Rule Id="CA1056" Action="None" />
+        <Rule Id="CA1305" Action="None" />
+        <Rule Id="CA1307" Action="None" />
+        <Rule Id="CA1717" Action="None" />
+        <Rule Id="CA1822" Action="None" />
+        <Rule Id="CA2007" Action="None" />
+    </Rules>
+    <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers">
+        <Rule Id="SA0001" Action="None" />
+        <Rule Id="SA1101" Action="None" />
+        <Rule Id="SA1117" Action="None" />
+        <Rule Id="SA1118" Action="None" />
+        <Rule Id="SA1123" Action="None" />
+        <Rule Id="SA1124" Action="None" />
+        <Rule Id="SA1413" Action="None" />
+        <Rule Id="SA1600" Action="None" />
+        <Rule Id="SA1601" Action="None" />
+        <Rule Id="SA1623" Action="None" />
+        <Rule Id="SA1629" Action="None" />
+        <Rule Id="SA1633" Action="None" />
+        <Rule Id="SA1649" Action="None" />
+        <Rule Id="SA1652" Action="None" />
+    </Rules>
+</RuleSet>

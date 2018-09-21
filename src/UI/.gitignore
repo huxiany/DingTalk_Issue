@@ -1,0 +1,4 @@
+built/ddmobile/*
+built/ddpc/*
+!built/ddmobile/scripts/
+!built/ddmobile/images/
