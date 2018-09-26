@@ -18,15 +18,6 @@
         public static void Main(string[] args)
         {
             var host = CreateWebHostBuilder(args).Build();
-
-            var env = host.Services.GetRequiredService<IHostingEnvironment>();
-            var dtSvc = host.Services.GetRequiredService<IDingtalkServices>();
-            var logger = host.Services.GetRequiredService<ILogger<Program>>();
-            using (var scope = host.Services.CreateScope())
-            {
-                var services = scope.ServiceProvider;
-            }
-
             host.Run();
         }
 
@@ -35,7 +26,6 @@
             var config = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-                .AddJsonFile($"appsettings.envspec.json", optional: true)
                 .AddCommandLine(args)
                 .Build();
 
@@ -51,11 +41,6 @@
         private static void ConfigureLogger(WebHostBuilderContext ctx, ILoggingBuilder logging)
         {
             logging.AddConfiguration(ctx.Configuration.GetSection("Logging"));
-        }
-
-        private static IDingtalkServices GetDtSvc(IWebHost host)
-        {
-            return host.Services.GetRequiredService<IDingtalkServices>();
         }
     }
 }

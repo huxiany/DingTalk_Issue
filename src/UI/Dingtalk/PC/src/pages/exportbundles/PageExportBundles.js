@@ -1,34 +1,8 @@
-import "./PageExportBundles.styl";
 import settings from "../../components/Settings";
-
 import React from "react";
-import Reflux from "reflux";
+import { message, Button } from "antd";
 
-import Actions from "./actions";
-import Store from "./store";
-import {
-    Table,
-    message,
-    Icon,
-    Input,
-    Button,
-    Tag,
-    Tooltip,
-    Pagination
-} from "antd";
-
-class PageExportBundles extends Reflux.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            selectedBundleIds: [], // 存放已选择打印的扎的Id
-            selectedBundles: [] // 存放已选择打印的扎的信息
-        };
-        this.store = Store;
-    }
-
-    componentDidMount() {}
-
+class PageExportBundles extends React.Component {
     handlePrintClicked() {
         let t = this;
         let s = t.state;
@@ -42,7 +16,6 @@ class PageExportBundles extends Reflux.Component {
 
     render() {
         let t = this;
-        let s = t.state;
 
         return (
             <div>

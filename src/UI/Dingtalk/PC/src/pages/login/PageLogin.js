@@ -1,5 +1,3 @@
-import "./PageLogin.styl";
-
 import React from "react";
 import Reflux from "reflux";
 import Actions from "./actions";
@@ -8,7 +6,6 @@ import Store from "./store";
 import { message, Alert, Row, Col } from "antd";
 
 import userInfo from "../../components/UserInfo";
-import Util from "../../components/Util";
 
 class Login extends Reflux.Component {
     constructor(props) {

@@ -7,7 +7,7 @@ import ReactDOM from "react-dom";
 import { RouteComponentProps } from "react-router";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import PrivateRoute from "../components/PrivateRoute";
-import "./app.styl";
+import "./app.css";
 
 import PageExportBundles from "../pages/exportbundles";
 import PageHome from "../pages/home";
