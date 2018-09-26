@@ -21,13 +21,7 @@
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-                .AddJsonFile($"appsettings.envspec.json", optional: true)
                 .AddEnvironmentVariables();
-
-            if (env.IsDevelopment())
-            {
-                builder.AddUserSecrets<Startup>();
-            }
 
             Configuration = builder.Build();
         }
@@ -37,19 +31,8 @@
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAuthentication(o =>
-            {
-                o.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-                o.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer();
-
-            services.ConfigureApplicationCookie(o =>
-            {
-                o.Cookie.SameSite = Microsoft.AspNetCore.Http.SameSiteMode.None;
-            });
 
             // Add Cross Origin Resource Sharing
-#if DEBUG
             services.AddCors(o => o.AddPolicy(
                 "CorsPolicy",
                 builder => builder.AllowAnyOrigin()
@@ -59,15 +42,14 @@
 
             services.AddOptions();
             services.Configure<DingtalkConfig>(Configuration.GetSection("DingtalkSettings"));
-#endif
 
             // Add framework services.
             services.AddMvc().AddJsonOptions(options =>
-          {
-              options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
-              options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-              options.SerializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.Local;
-          });
+            {
+                options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                options.SerializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.Local;
+            });
 
             services.AddSingleton<IDingtalkServices, DingtalkServices>();
         }
@@ -76,8 +58,6 @@
         public void Configure(IApplicationBuilder app)
         {
             app.UseCors("CorsPolicy");
-
-            app.UseAuthentication();
 
             app.UseStaticFiles();
 

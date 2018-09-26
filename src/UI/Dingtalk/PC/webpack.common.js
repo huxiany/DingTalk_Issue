@@ -17,9 +17,7 @@ const config = {
                 vendors: {
                     test: /[\\/]node_modules[\\/]/,
                     name: "vendors",
-                    chunks: chunk => {
-                        return chunk.name !== "echarts";
-                    }
+                    chunks: "all"
                 },
                 components: {
                     test: /components[\\/]/,
@@ -51,7 +49,7 @@ const config = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: "StoneERP",
+            title: "JSAPI Test",
             template: "html/index.html",
             appMountId: "App"
         }),

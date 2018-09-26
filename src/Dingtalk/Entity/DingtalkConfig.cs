@@ -14,8 +14,6 @@
 
         public string NonceString { get; set; } = string.Empty;
 
-        public string AnDaSMTMobileAppUrl { get; set; } = string.Empty;
-
         public string AnDaSMTPCAppUrl { get; set; } = string.Empty;
     }
 }

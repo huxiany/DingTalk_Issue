@@ -1,10 +1,6 @@
-require("./PageImportNewPolishingData.styl");
 import Reflux from "reflux";
-
 import React from "react";
-
-import { Input, Button, message, Spin, Alert, Collapse, Row, Col } from "antd";
-
+import { Input, Button, message, Spin, Row, Col } from "antd";
 import Actions from "./actions";
 import Store from "./store";
 import dtClientSVC from "../../components/DingtalkClientSVC";
