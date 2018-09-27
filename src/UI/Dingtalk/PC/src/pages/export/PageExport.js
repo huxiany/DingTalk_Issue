@@ -2,15 +2,14 @@ import settings from "../../components/Settings";
 import React from "react";
 import { message, Button } from "antd";
 
-class PageExportBundles extends React.Component {
-    handlePrintClicked() {
+class PageExport extends React.Component {
+    handlePrintClick() {
         let t = this;
-        let s = t.state;
 
         let webApiUrl = settings.webApiUrl;
 
         let printAPI = "Test/Print";
-        message.info("正在导出码单以供下载并打印...");
+        message.info("正在导出数据...");
         window.location = webApiUrl + printAPI;
     }
 
@@ -24,7 +23,7 @@ class PageExportBundles extends React.Component {
                         type="primary"
                         size="large"
                         style={{ marginLeft: "10px", padding: "4px 4px" }}
-                        onClick={t.handlePrintClicked.bind(t)}
+                        onClick={t.handlePrintClick.bind(t)}
                     >
                         导出数据
                     </Button>
@@ -34,4 +33,4 @@ class PageExportBundles extends React.Component {
     }
 }
 
-export default PageExportBundles;
+export default PageExport;

@@ -10,9 +10,6 @@
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Logging;
 
-    /// <summary>
-    /// 生产工单API
-    /// </summary>
     [Route("api/[controller]")]
     public class TestController : SMTControllerBase
     {
@@ -23,20 +20,11 @@
             this.logger = logger;
         }
 
-        [HttpPost]
-        [Route("ImportData")]
-        public IActionResult ImportData([FromBody] FileInfoViewModel specFile)
-        {
-            string base64Content = specFile.FileContent;
-
-            return Success();
-        }
-
         [HttpGet("")]
         [Route("Print")]
         public IActionResult Print()
         {
-            return Success();
+            return Success("成功导出数据");
         }
     }
 }

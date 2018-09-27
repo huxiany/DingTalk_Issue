@@ -51,7 +51,7 @@ class Login extends Reflux.Component {
         let t = this;
         let s = t.state;
 
-        let returnToPath = "/";
+        let returnToPath = "/import";
         t.props.history.push(returnToPath);
     }
 

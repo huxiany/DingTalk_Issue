@@ -9,13 +9,11 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import PrivateRoute from "../components/PrivateRoute";
 import "./app.css";
 
-import PageExportBundles from "../pages/exportbundles";
-import PageHome from "../pages/home";
-import PageImportNewPolishingData from "../pages/importnewpolishingdata";
+import PageExport from "../pages/export";
+import PageImport from "../pages/import";
 import PageLogin from "../pages/login";
 
 import { Icon, Layout, Menu } from "antd";
-const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
 class App extends React.Component<RouteComponentProps<App>, {}> {
     constructor(props) {
@@ -24,28 +22,11 @@ class App extends React.Component<RouteComponentProps<App>, {}> {
 
     public render(): JSX.Element {
         const t = this;
-        const menuItems = [];
-        const bundleSheetSubMenus = [];
+        const menus = [];
 
-        bundleSheetSubMenus.push(<Menu.Item key="5">导出数据</Menu.Item>);
+        menus.push(<Menu.Item key="5">导出数据</Menu.Item>);
 
-        bundleSheetSubMenus.push(<Menu.Item key="6">导入数据</Menu.Item>);
-
-        if (bundleSheetSubMenus.length > 0) {
-            menuItems.push(
-                <SubMenu
-                    key="sub3"
-                    title={
-                        <span>
-                            <Icon type="laptop" />
-                            测试菜单
-                        </span>
-                    }
-                >
-                    {bundleSheetSubMenus}
-                </SubMenu>
-            );
-        }
+        menus.push(<Menu.Item key="6">导入数据</Menu.Item>);
 
         return (
             <Layout>
@@ -67,8 +48,7 @@ class App extends React.Component<RouteComponentProps<App>, {}> {
                             style={{ height: "100%" }}
                             onClick={t.handleMenuClick.bind(t)}
                         >
-                            <Menu.Item key="1">首页</Menu.Item>
-                            {menuItems}
+                            {menus}
                         </Menu>
                     </Sider>
                     <Layout style={{ padding: "0 24px 24px" }}>
@@ -82,16 +62,12 @@ class App extends React.Component<RouteComponentProps<App>, {}> {
                         >
                             <Switch>
                                 <PrivateRoute
-                                    path="/home"
-                                    component={PageHome}
+                                    path="/import"
+                                    component={PageImport}
                                 />
                                 <PrivateRoute
-                                    path="/importnewpolishingdata"
-                                    component={PageImportNewPolishingData}
-                                />
-                                <PrivateRoute
-                                    path="/exportbundles"
-                                    component={PageExportBundles}
+                                    path="/export"
+                                    component={PageExport}
                                 />
                             </Switch>
                         </Content>
@@ -105,10 +81,10 @@ class App extends React.Component<RouteComponentProps<App>, {}> {
         let path = "/";
         switch (value.key) {
             case "5":
-                path = "/exportbundles";
+                path = "/export";
                 break;
             case "6":
-                path = "/importnewpolishingdata";
+                path = "/import";
                 break;
         }
 
